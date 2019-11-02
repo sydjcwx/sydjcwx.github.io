@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>windows下创建Python虚拟环境</title>
+    <link href="undefined2019/11/02/windows%E4%B8%8B%E5%88%9B%E5%BB%BAPython%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/"/>
+    <url>2019/11/02/windows%E4%B8%8B%E5%88%9B%E5%BB%BAPython%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
+    
+    <content type="html"><![CDATA[<p>windows下创建Python虚拟环境<br>说明<br>由于Python的版本众多，还有Python2和Python3的争论，因此有些软件包或第三方库就容易出现版本不兼容的问题。</p><p>通过 virtualenv 这个工具，就可以构建一系列 虚拟的Python环境 ，然后在每个环境中安装需要的软件包(配合 pip 使用)，这一系列的环境是相互隔离的。作为一个独立的环境就不容易出现版本问题，还方便部署。</p><p>安装<br>pip install virtualenv</p><p>virtualenv的基本使用<br>1).创建虚拟环境</p><p>virtualenv venv</p><p>为环境指定Python解释器:</p><p>virtualenv -p c:\python27\python.exe venv</p><p>2).激活虚拟环境</p><p>activate venv</p><p>3).停止虚拟环境</p><p>deactivate</p><p>4).删除虚拟环境<br>直接删除目录即可.</p><p>rmvirtualenv venv　</p><p>virtualenvwrapper<br>为了使用virtualenv更方便，可以借助 virtualenvwrapper</p><p>1).安装virtualenvwrapper<br>pip install virtualenvwrapper-win</p><p>2).创建虚拟环境<br>默认创建的虚拟环境位于C:\Users\username\py3,可以通过环境变量 WORKON_HOME 来定制。</p><p>通过计算机–&gt;属性–&gt;高级系统设置–&gt;环境变量–&gt;在系统变量中新建“变量名”：WORKON_HOME,变量值：“你自定义的路径”。</p><p>创建后，会自动激活环境，注意看Shell提示符的改变:</p><p>(py3)c:&gt;</p><p>3).列出所有虚拟环境</p><p>lsvirtualenv</p><p>4).激活虚拟环境</p><p>workon venv　</p><p>5).进入虚拟环境目录<br>cdvirtualenv</p><p> 建议用 virtualenvwrapper （主要在切换的时候方便）</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>python</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Hello World</title>
     <link href="undefined2019/11/01/hello-world/"/>
     <url>2019/11/01/hello-world/</url>
