@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-02T14:21:45.984Z</updated>
+  <updated>2019-11-05T02:19:50.896Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,17 +17,44 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>软件测试之如何选择合适的正交表</title>
+    <link href="http://yoursite.com/2019/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E4%B9%8B%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E5%90%88%E9%80%82%E7%9A%84%E6%AD%A3%E4%BA%A4%E8%A1%A8/"/>
+    <id>http://yoursite.com/2019/11/05/软件测试之如何选择合适的正交表/</id>
+    <published>2019-11-05T02:15:09.656Z</published>
+    <updated>2019-11-05T02:19:50.896Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>需求：</strong><br>窗体中有多个控件（字体、字符样式、颜色、字号），<br>每个控件有多个取值<br>字体：仿宋、楷体、华文彩云<br>字符样式：粗体、斜体、下划线<br>颜色：红色、绿色、蓝色<br>字号：20号、30号、40号</p><p>如果按照正常步骤进行，需要 3<em>3</em>3*3=81 种组合，就需要写81个测试用例，显得比较多，针对这种组合量比较大的情况，如何采用最少的测试用例集合获得最大的测试覆盖率呢，就可以采用  正交排列法（—定义：正交排列法就是能够使用最小的测试过程集合获得最大的测试覆盖率。附：这是统计学的一个研究成果）。</p><p><strong>正交表的类别</strong><br>可分为：单一水平正交表 和 混合水平正交表。</p><p><strong>单一水平正交表</strong>：各列水平数相同的正交表称为等水平正交表。比如：L9 (3<strong>4) –&gt;（附：括号里意思为3的4次方，下同。）、L2 7(3</strong>13) 称为3水平正交表。 L4 (2<strong>3)、L8 （2</strong>7） 称为2水平正交表。单一水平正交表可以用 Ln(m<em>*k) 表示，n是行数，m是水平数，k是因数。比如上边需求示例：可以理解为4因数（字体，字符样式，颜色，字号），3水平（意思是每个因数里都有三个选项，比如：字体里有 仿宋、楷体、华文彩云 3个选择）。一般情况下，我们可以直接确定m和k，n 可以根据水平数和因数计算行数，公式为：n=k</em>(m-1)+1。</p><p><strong>混合水平正交表</strong>：各列水平数不完全相同的正交表称为混合水平正交表。比如：L8 （4<strong>1    2</strong>4）–&gt;（附：括号里意思为4的1次方 和 2的4次方。意思为表中共有8行，有一列的水平为4，有4列的水平为2。）。混合水平正交表可以用 Ln(m1<strong>k1    m2</strong>k2) 表示。一般情况下，我们可以直接确定m和k，n 可以根据水平数和因数计算行数，公式为：n=k1<em>(m1-1)+k2</em>(m2-1)+k3<em>(m3-1)……+ kx</em>(mx-1) + 1。</p><p><strong>查看正交表</strong><br><a href="http://support.sas.com/techsup/technote/ts723_Designs.txt" target="_blank" rel="noopener">http://support.sas.com/techsup/technote/ts723_Designs.txt</a></p><p><strong>如何选取合适的正交表</strong><br>假如我们确定有3因数2水平，计算n=3<em>(2-1)+1=4,应该表示为 L4(2*</em>3)，那么我们看看有木有和这个正好相等的正交表，如果有，那么把变量值复制进去这个表中，如果没有，按照如下方法选取：</p><ol><li><p>水平数相等，因数相等时，取行数刚好比自定义正交表略大的</p></li><li><p>水平数相等，因数不相等时，取行数刚好比自定义正交表略大的，因数刚好比自定义正交表略大的。比如：自定义为：                 L7(3<strong>3), 我们选取为 L9(3</strong>4), 套用之后，最后一列因素去掉</p></li><li><p>水平数不相等时，即：混合正交表。</p></li></ol><p><strong>例</strong>：</p><p>有五个因素（变量）：</p><p>　　A、B、C、D和E</p><p>　　两个因素有两个水平（变量的取值）、两个因素有三个水平，一个因素有六个水平：</p><p>　　A：A1、A2</p><p>　　B：B1、B2</p><p>　　C：C1、C2、C3</p><p>　　D：D1、D2、D3</p><p>　　E：E1、E2、E3、E4、E5、E6</p><p>自定义为：L11(2^2 3^2 5^1)</p><p>选择正交表：</p><pre><code>表中的因素数（变量）＞＝5</code></pre><p>　　表中至少有二个因素的水平数（变量的取值）＞＝2</p><p>　　至少有另外二个因素的水平数＞＝3</p><p>　　还至少有另外一个因素的水平数＞＝6</p><p>　　行数取最少的一个：L49(7^8)或者L18(3^6 6^1)）</p><p>结果：L18(3^6 6^1)<br><strong>例：</strong></p><p>m1=5   k1=5</p><p>m2=2   k2=1</p><p>n=22</p><p>自定义为：L22(5^5   2^1)</p><p>没有正好等于22的正交表，此时选择大于22并且满足m&gt;=max(m1=5, m2=2),   k&gt;=k1+k2=6 的正交表，查到有</p><p>L25(5^6)、L49(7^8) 都符合，选择行数少的，即：最终选择 L25(5^6)</p><p><strong>对于混合正交表</strong>，可以使用allpairs工具辅助我们进行选择。</p><p>allpairs工具使用：</p><p>1）制作取值表（不要编号） 因素和水平 （因素是一行 。。。。 ）</p><p>2）制作的取值表复制到一个txt文本中（不要改格式） user.txt</p><p>3）把txt文本放入allpairs工具的文件夹中</p><p>4）在文件夹中运行 cmd （我到达了这个文件夹下面）</p><p>4）在allpairs工具的文件夹路径下使用DOS命令：</p><p>allpairs.exe 建立的txt文本 &gt; 用例结果文本（可以不存在）</p><p>例：</p><p>​​<img src="https://img-blog.csdnimg.cn/20191105101046918.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2wxMTU5MDE1ODM4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20191105101103331.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2wxMTU5MDE1ODM4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20191105101113447.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2wxMTU5MDE1ODM4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20191105101127838.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2wxMTU5MDE1ODM4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;需求：&lt;/strong&gt;&lt;br&gt;窗体中有多个控件（字体、字符样式、颜色、字号），&lt;br&gt;每个控件有多个取值&lt;br&gt;字体：仿宋、楷体、华文彩云&lt;br&gt;字符样式：粗体、斜体、下划线&lt;br&gt;颜色：红色、绿色、蓝色&lt;br&gt;字号：20号、30号、40号&lt;/p&gt;
+&lt;p&gt;
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>windows下创建Python虚拟环境</title>
     <link href="http://yoursite.com/2019/11/02/windows%E4%B8%8B%E5%88%9B%E5%BB%BAPython%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/"/>
     <id>http://yoursite.com/2019/11/02/windows下创建Python虚拟环境/</id>
     <published>2019-11-02T10:08:15.000Z</published>
     <updated>2019-11-02T14:21:45.984Z</updated>
     
-    <content type="html"><![CDATA[<p>windows下创建Python虚拟环境<br>说明<br>由于Python的版本众多，还有Python2和Python3的争论，因此有些软件包或第三方库就容易出现版本不兼容的问题。</p><p>通过 virtualenv 这个工具，就可以构建一系列 虚拟的Python环境 ，然后在每个环境中安装需要的软件包(配合 pip 使用)，这一系列的环境是相互隔离的。作为一个独立的环境就不容易出现版本问题，还方便部署。</p><a id="more"></a><p>安装<br>pip install virtualenv</p><p>virtualenv的基本使用<br>1).创建虚拟环境</p><p>virtualenv venv</p><p>为环境指定Python解释器:</p><p>virtualenv -p c:\python27\python.exe venv</p><p>2).激活虚拟环境</p><p>activate venv</p><p>3).停止虚拟环境</p><p>deactivate</p><p>4).删除虚拟环境<br>直接删除目录即可.</p><p>rmvirtualenv venv　</p><p>virtualenvwrapper<br>为了使用virtualenv更方便，可以借助 virtualenvwrapper</p><p>1).安装virtualenvwrapper<br>pip install virtualenvwrapper-win</p><p>2).创建虚拟环境<br>默认创建的虚拟环境位于C:\Users\username\py3,可以通过环境变量 WORKON_HOME 来定制。</p><p>通过计算机–&gt;属性–&gt;高级系统设置–&gt;环境变量–&gt;在系统变量中新建“变量名”：WORKON_HOME,变量值：“你自定义的路径”。</p><p>创建后，会自动激活环境，注意看Shell提示符的改变:</p><p>(py3)c:&gt;</p><p>3).列出所有虚拟环境</p><p>lsvirtualenv</p><p>4).激活虚拟环境</p><p>workon venv　</p><p>5).进入虚拟环境目录<br>cdvirtualenv</p><p> 建议用 virtualenvwrapper （主要在切换的时候方便）</p>]]></content>
+    <content type="html"><![CDATA[<p>windows下创建Python虚拟环境<br>说明<br>由于Python的版本众多，还有Python2和Python3的争论，因此有些软件包或第三方库就容易出现版本不兼容的问题。</p><p>通过 virtualenv 这个工具，就可以构建一系列 虚拟的Python环境 ，然后在每个环境中安装需要的软件包(配合 pip 使用)，这一系列的环境是相互隔离的。作为一个独立的环境就不容易出现版本问题，还方便部署。</p><p>安装<br>pip install virtualenv</p><p>virtualenv的基本使用<br>1).创建虚拟环境</p><p>virtualenv venv</p><p>为环境指定Python解释器:</p><p>virtualenv -p c:\python27\python.exe venv</p><p>2).激活虚拟环境</p><p>activate venv</p><p>3).停止虚拟环境</p><p>deactivate</p><p>4).删除虚拟环境<br>直接删除目录即可.</p><p>rmvirtualenv venv　</p><p>virtualenvwrapper<br>为了使用virtualenv更方便，可以借助 virtualenvwrapper</p><p>1).安装virtualenvwrapper<br>pip install virtualenvwrapper-win</p><p>2).创建虚拟环境<br>默认创建的虚拟环境位于C:\Users\username\py3,可以通过环境变量 WORKON_HOME 来定制。</p><p>通过计算机–&gt;属性–&gt;高级系统设置–&gt;环境变量–&gt;在系统变量中新建“变量名”：WORKON_HOME,变量值：“你自定义的路径”。</p><p>创建后，会自动激活环境，注意看Shell提示符的改变:</p><p>(py3)c:&gt;</p><p>3).列出所有虚拟环境</p><p>lsvirtualenv</p><p>4).激活虚拟环境</p><p>workon venv　</p><p>5).进入虚拟环境目录<br>cdvirtualenv</p><p> 建议用 virtualenvwrapper （主要在切换的时候方便）</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;windows下创建Python虚拟环境&lt;br&gt;说明&lt;br&gt;由于Python的版本众多，还有Python2和Python3的争论，因此有些软件包或第三方库就容易出现版本不兼容的问题。&lt;/p&gt;&lt;p&gt;通过 virtualenv 这个工具，就可以构建一系列 虚拟的Python环境 ，然后在每个环境中安装需要的软件包(配合 pip 使用)，这一系列的环境是相互隔离的。作为一个独立的环境就不容易出现版本问题，还方便部署。&lt;/p&gt;
+      
+      
+        &lt;p&gt;windows下创建Python虚拟环境&lt;br&gt;说明&lt;br&gt;由于Python的版本众多，还有Python2和Python3的争论，因此有些软件包或第三方库就容易出现版本不兼容的问题。&lt;/p&gt;
+&lt;p&gt;通过 virtualenv 这个工具，就可以构建一系列 虚拟的Python环
+      
     
     </summary>
     
@@ -44,11 +71,14 @@
     <published>2019-11-01T07:33:34.945Z</published>
     <updated>2019-11-01T07:33:34.945Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><a id="more"></a><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
     
     </summary>
     
