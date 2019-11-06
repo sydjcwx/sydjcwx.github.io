@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="主要编程语言 python，包含爬虫，软件测试等">
+  <meta name="author" content="sydjcwx">
+  <meta name="keywords" content="Python, 爬虫, 软件测试">
+  <title>nodejs+hexo+gihub 搭建自己的博客 ~ 殇夜</title>
+
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css"  >
+
+<link rel="stylesheet" href="/css/main.css"  >
+
+
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css"  >
+
+
+  
+
+
+
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>殇夜</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2" id="background"
+         style="background: url('/img/default.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              <p class="mt-3">星期三, 十一月 6日 2019, 11:52 中午</p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <p>环境：win10</p>
+<h2 id="1-安装配置nodejs"><a href="#1-安装配置nodejs" class="headerlink" title="1. 安装配置nodejs"></a><strong>1. 安装配置nodejs</strong></h2><p>首先下载好nodejs<br>官网地址： <a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a><br>下载LTS版， .msi结尾的安装包<br>双击此安装包，一路点击next，直至安装完成。<br>默认会安装到 C:\Program Files\nodejs 下，并且会自动添加环境变量。<br>安装完成之后，进入cmd命令行，输入node -v 和 npm -v，会出现对应的版本号，即为成功。如图：<br><img src="https://img-blog.csdnimg.cn/20191106103734445.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2wxMTU5MDE1ODM4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"><br>如果选择默认安装路径，以后下载模块依赖的话也会存到c盘，为避免占用c盘空间，可以进行如下操作：<br>在d盘创建nodejsFiles文件见，进入此文件夹，再创建两个文件夹：node_cache和node_global。<br>如图:<br><img src="https://img-blog.csdnimg.cn/20191106104808965.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2wxMTU5MDE1ODM4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"><br>创建好后还需要配置环境变量，右键我的电脑，高级系统设置&gt;环境变量&gt;系统变量，点击新建，变量名：NODE_PATH, 变量值：D:\nodejsFiles, 然后再找到path变量名，点击编辑，新建 %NODE_PATH% ，添加好后一路点击确定。最后path里会显示<br><img src="https://img-blog.csdnimg.cn/20191106105321519.png" srcset="/img/loading.gif" alt="在这里插入图片描述"><br>最后设置更改模块和缓存安装路径：<br>设置全局路径，在cmd中输入：<br>npm config set prefix “D:\nodejs\node_global”<br>npm config set cache “D:\nodejs\node_cache”<br>注意：根据自己的文件输入相应的路径</p>
+<h2 id="2-安装github"><a href="#2-安装github" class="headerlink" title="2. 安装github"></a><strong>2. 安装github</strong></h2><p>下载地址：<a href="https://pc.qq.com/detail/13/detail_22693.html" target="_blank" rel="noopener">https://pc.qq.com/detail/13/detail_22693.html</a><br>腾讯软件中心直接搜索git 下载，这个下载速度比官网快很多。<br>可以选择默认安装和自定义安装，本人选择自定义安装，<br>安装过程如图：（供参考）<br><img src="https://img-blog.csdnimg.cn/20191106111024264.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2wxMTU5MDE1ODM4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20191106111041780.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2wxMTU5MDE1ODM4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20191106111201200.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2wxMTU5MDE1ODM4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20191106111215977.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2wxMTU5MDE1ODM4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20191106111233535.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2wxMTU5MDE1ODM4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20191106111245538.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2wxMTU5MDE1ODM4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20191106111258113.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2wxMTU5MDE1ODM4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20191106111313444.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2wxMTU5MDE1ODM4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20191106111325118.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2wxMTU5MDE1ODM4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"><br>安装完成之后桌面上会显示<br><img src="https://img-blog.csdnimg.cn/2019110611143091.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2wxMTU5MDE1ODM4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"><br>点击打开 Git Bash，或者 鼠标右键 Git Bash Here, 输入命令：git –version, 会显示版本号<br><img src="https://img-blog.csdnimg.cn/20191106111612639.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2wxMTU5MDE1ODM4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"><br><strong>配置ssh 用于远程登录github</strong><br>参考</p>
+<ol>
+<li>打开Git Bash，静茹命令行，输入 cd ~/.ssh, 出现下图，说明需要配置ssh<br><img src="https://img-blog.csdnimg.cn/20191106112017107.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2wxMTU5MDE1ODM4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"></li>
+<li>新建ssh key<br>输入 ssh-keygen -t rsa -C “（邮箱名字）”<br><img src="https://img-blog.csdnimg.cn/20191106113009645.png" srcset="/img/loading.gif" alt="在这里插入图片描述"></li>
+<li>会提示你key保存的路径，然后提示你输入密码，直接按两次enter就行，生成成功会显示</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20191106113147533.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2wxMTU5MDE1ODM4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"><br>4. 进入到key保存的文件夹下，会有id_rsa和id_rsa.pub（生成的 id_rsa 以及 id_rsa.pub，前者是私钥最好不要泄露，后者是公钥可以告诉别人。）<br>5. 打开 id_rsa.pub，复制里边的内容后，打开guthub网站，登陆上账号，点击右上角自己的小图标，选择设置，选择 SSH and GPG keys，New SSH key， 自己起个名字，然后把复制的内容添加进去， 欧克了。<br><img src="https://img-blog.csdnimg.cn/2019110611442682.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2wxMTU5MDE1ODM4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"><br>6. 测试一波<br>7. <img src="https://img-blog.csdnimg.cn/20191106114447577.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2wxMTU5MDE1ODM4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"></p>
+<h2 id="3-安装hexo"><a href="#3-安装hexo" class="headerlink" title="3. 安装hexo"></a>3. 安装hexo</h2><p>参考： <a href="https://blog.csdn.net/wh211212/article/details/75004199" target="_blank" rel="noopener">https://blog.csdn.net/wh211212/article/details/75004199</a></p>
+<p>安装过程中遇到的错误：</p>
+<p>$ hexo d<br>INFO  Deploying: git<br>INFO  Clearing .deploy_git folder…<br>INFO  Copying files from public folder…<br>INFO  Copying files from extend dirs…<br>warning: LF will be replaced by CRLF in 2018/01/05/hello-world/index.html.<br>The file will have its original line endings in your working directory.<br>warning: LF will be replaced by CRLF in archives/2018/01/index.html.<br>The file will have its original line endings in your working directory.<br>warning: LF will be replaced by CRLF in archives/2018/index.html.<br>The file will have its original line endings in your working directory.<br>warning: LF will be replaced by CRLF in archives/index.html.<br>The file will have its original line endings in your working directory.<br>warning: LF will be replaced by CRLF in css/style.css.<br>The file will have its original line endings in your working directory.<br>warning: LF will be replaced by CRLF in fancybox/helpers/jquery.fancybox-buttons                                                                                                                                  .css.<br>The file will have its original line endings in your working directory.<br>warning: LF will be replaced by CRLF in fancybox/helpers/jquery.fancybox-buttons                                                                                                                                  .js.<br>The file will have its original line endings in your working directory.<br>warning: LF will be replaced by CRLF in fancybox/helpers/jquery.fancybox-media.j                                                                                                                                  s.<br>The file will have its original line endings in your working directory.<br>warning: LF will be replaced by CRLF in fancybox/helpers/jquery.fancybox-thumbs.                                                                                                                                  css.<br>The file will have its original line endings in your working directory.<br>warning: LF will be replaced by CRLF in fancybox/helpers/jquery.fancybox-thumbs.                                                                                                                                  js.<br>The file will have its original line endings in your working directory.<br>warning: LF will be replaced by CRLF in fancybox/jquery.fancybox.css.<br>The file will have its original line endings in your working directory.<br>warning: LF will be replaced by CRLF in fancybox/jquery.fancybox.js.<br>The file will have its original line endings in your working directory.<br>warning: LF will be replaced by CRLF in fancybox/jquery.fancybox.pack.js.<br>The file will have its original line endings in your working directory.<br>warning: LF will be replaced by CRLF in index.html.<br>The file will have its original line endings in your working directory.<br>warning: LF will be replaced by CRLF in js/script.js.<br>The file will have its original line endings in your working directory.</p>
+<p>*** Please tell me who you are.</p>
+<p>Run</p>
+<p>  git config –global user.email “<a href="mailto:you@example.com" target="_blank" rel="noopener">you@example.com</a>“<br>  git config –global user.name “Your Name”</p>
+<p>to set your account’s default identity.<br>Omit –global to set the identity only in this repository.</p>
+<p>fatal: unable to auto-detect email address (got ‘Alex@DESKTOP-I33C9K5.(none)’)<br>error: src refspec HEAD does not match any.<br>error: failed to push some refs to ‘git@github.com:alexsaurora/alexsaurora.githu                                                                                                                                  b.io.git’<br>FATAL Something’s wrong. Maybe you can find the solution here: <a href="http://hexo.io/do" target="_blank" rel="noopener">http://hexo.io/do</a>                                                                                                                                  cs/troubleshooting.html<br>Error: error: src refspec HEAD does not match any.<br>error: failed to push some refs to ‘git@github.com:alexsaurora/alexsaurora.githu                                                                                                                                  b.io.git’</p>
+<pre><code>at ChildProcess.&lt;anonymous&gt; (D:\Hexo\node_modules\hexo-util\lib\spawn.js:37:                                                                                                                                  17)
+at emitTwo (events.js:106:13)
+at ChildProcess.emit (events.js:191:7)
+at ChildProcess.cp.emit (D:\Hexo\node_modules\cross-spawn\lib\enoent.js:40:2                                                                                                                                  9)
+at maybeClose (internal/child_process.js:920:16)
+at Process.ChildProcess._handle.onexit (internal/child_process.js:230:5)</code></pre><p>解决方式：<br>按提示 Run 输入：<br> git config –global user.email “<a href="mailto:you@example.com" target="_blank" rel="noopener">you@example.com</a>“ # 自己github绑定的邮箱<br>  git config –global user.name “Your Name” # 自己github的昵称</p>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            
+            <p>
+              <i class="iconfont icon-tag"></i>
+              
+                <a class="hover-with-bg" href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA">环境搭建</a>
+              
+              <span id="/2019/11/06/nodejs+hexo+gihub 搭建自己的博客/" class="visitors leancloud_visitors" data-flag-title="nodejs+hexo+gihub 搭建自己的博客">
+                <em id="visitors-text" class="post-meta-item-text"></em>
+                <i id="visitors-count"></i>
+              </span>
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
+
+
+  <script src="/js/lazyload.js" ></script>
+
+
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
+
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "nodejs+hexo+gihub 搭建自己的博客&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script>
+    $('#post').find('img').each(
+      function () {
+        var _this = $(this);
+        var _src = _this.attr("src");
+        _this.wrap('<a data-fancybox="images" href="' + _src + '" ></a>');
+      }
+    );
+  </script>
+
+
+
+  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+
+
+
+
+</body>
+</html>
