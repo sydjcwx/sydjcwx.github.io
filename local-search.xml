@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>python代码查询数据库数据表的所有字段和对应注释</title>
+    <link href="undefined2019/11/07/python%E4%BB%A3%E7%A0%81%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE%E5%BA%93%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%9A%84%E6%89%80%E6%9C%89%E5%AD%97%E6%AE%B5%E5%92%8C%E5%AF%B9%E5%BA%94%E6%B3%A8%E9%87%8A/"/>
+    <url>2019/11/07/python%E4%BB%A3%E7%A0%81%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE%E5%BA%93%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%9A%84%E6%89%80%E6%9C%89%E5%AD%97%E6%AE%B5%E5%92%8C%E5%AF%B9%E5%BA%94%E6%B3%A8%E9%87%8A/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_mysql_zi_duan</span><span class="params">()</span>:</span></span><br><span class="line">    conn = pymysql.connect(host=<span class="string">'192.16.00.0'</span>, port=<span class="number">3306</span>, user=<span class="string">'h'</span>, passwd=<span class="string">'xi'</span>, db=<span class="string">'db_x'</span>, charset=<span class="string">'utf8'</span>)</span><br><span class="line">    cursor01 = conn.cursor()</span><br><span class="line">    cursor01.execute(</span><br><span class="line">        <span class="string">"select column_name, column_comment from information_schema.columns where table_schema ='db_x' and table_name = 'api_lingo_all_data'"</span>)</span><br><span class="line">    all_info = cursor01.fetchall()  <span class="comment"># 数据库字段名和注释</span></span><br><span class="line">    print(all_info)</span><br><span class="line">    zi_duan_ming = []</span><br><span class="line">    <span class="keyword">for</span> data <span class="keyword">in</span> all_info:</span><br><span class="line">        zi_duan_ming.append(data[<span class="number">0</span>])</span><br><span class="line">    print(str(zi_duan_ming).replace(<span class="string">'['</span>,<span class="string">''</span>).replace(<span class="string">']'</span>,<span class="string">''</span>))</span><br><span class="line"> </span><br><span class="line">    cursor01.close()</span><br><span class="line">    conn.close()</span><br><span class="line">    </span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment"># 获取一个表的 所有字段名</span></span><br><span class="line">    get_mysql_zi_duan()</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>nodejs+hexo+gihub 搭建自己的博客</title>
     <link href="undefined2019/11/06/nodejs+hexo+gihub%20%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/"/>
     <url>2019/11/06/nodejs+hexo+gihub%20%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</url>
