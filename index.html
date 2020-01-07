@@ -166,6 +166,111 @@ My GitHub : 点击进入我的GitHub
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/07/python%E4%BB%A3%E7%A0%81%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B9%B6%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/">
+        <p class="h4 index-header">python代码连接远程服务器并执行命令</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172# coding=utf-8# coding=utf-8'''根据时间检测log日志文件日期，并自动打包压缩'''import paramiko, time, datetime, base64def days_ago():    '''    获取当前日期前30天日期, 不算当天, 返回 list    :return:    '''    today = time.strftime('%Y,%m,%d')  # &lt;class 'str'&gt;    t = time.strptime(today, '%Y,%m,%d')  # # &lt;class 'time.struct_time'&gt;    y, m, d = t[0:3]    # print(y, m, d)    thirty_days_lis</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-07&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/07/win10%E4%B8%8B%20Genymotion%20+%20Xposed%20+%20Inspeckage%20%E5%AE%89%E8%A3%85%E8%B0%83%E8%AF%95%E5%AE%89%E5%8D%93app/">
+        <p class="h4 index-header">win10下 Genymotion + Xposed + Inspeckage 安装调试安卓app</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">1. Genymotion下载地址：https://pan.baidu.com/s/1brjhNUiVSQwGvvrpN9HU1w提取码：84tr
+安装：1.执⾏genymotion-2.11.0-vbox.exe(是⼀个集合程序，包含genymotion和       virtualbox) -&gt; 不需要 更改配置，直接下⼀步默认安装2.安装完genymotion继续等待，会提示安装virtualbox，继续安装，期间会提示安装oracle插件，全部 允许安装3.安装完成后会在桌⾯展示genymotion和virtualbox两个图标
+
+启动Genymotion1.点击genymotion图标 -&gt; 弹出框点击 &gt;Personal Use    2.勾选复选框 -&gt; 点击Accept -&gt; 点击跳转⻚⾯的Close按钮3.点击ADD，下载安装系统虚拟包4.虚拟系统安装完成后，打开 VirtuaBOX 会发现新增了一个虚拟机5.返回Genymotion界面，会发现页多了一个同名称的虚拟机，现在可以寄双击打开了，
+安装xposed 和 inspeckage下</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-07&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/07/shell%E8%84%9A%E6%9C%AC%E7%9B%B8%E5%85%B3/">
+        <p class="h4 index-header">shell脚本相关</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">shell脚本定时检测python程序是否运行shell脚本
+12345678910111213141516171819202122232425262728293031323334#!/bin/bashecho "开始检查运费fright_run程序是否运行..."cd /opt/gh2/app/goods-freight-pyprocessID=$(ps -ef | grep freight_run.py | grep -v "grep" | awk "&#123;print $2&#125;")echo $processID# 判断$processID为空,此处意思为如果$processID为空，那么重启if [ -z "$processID" ]then    # 启动运费fright_run程序    echo "运费fright_run程序未运行, 重新启动中..."    #nohup python3 freight_run.py &gt;/dev/null &amp;    nohup python3 freight_run.py &gt;/store/logs/good</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-07&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/07/python%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/">
+        <p class="h4 index-header">python发送邮件</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">12345678910111213141516171819202122232425import smtplibfrom email.mime.text import MIMEText# 第三方 SMTP 服务mail_host = "smtp.qq.com"  # SMTP服务器mail_user = "1159038@qq.com"  # 用户名mail_pass = "pgs"  # 密码 客户端授权码，不是邮箱密码sender = '115908@qq.com'  # 发件人邮箱receivers = ['154747@163.com']  # 接收人邮箱content = 'Python Send Mail !'title = 'Python SMTP Mail Test'  # 邮件主题message = MIMEText(content, 'plain', 'utf-8')  # 内容, 格式, 编码message['From'] = "&#123;&#125;".format(sender)message['To'] = ",".join(receivers)messag</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-07&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/01/03/python%20%20selenium_%E9%BC%A0%E6%A0%87%E7%82%B9%E5%87%BB_%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5/">
         <p class="h4 index-header">python  selenium_鼠标点击_键盘输入</p>
         
@@ -305,84 +410,19 @@ docker imagesdocke</div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/05/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E4%B9%8B%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E5%90%88%E9%80%82%E7%9A%84%E6%AD%A3%E4%BA%A4%E8%A1%A8/">
-        <p class="h4 index-header">软件测试之如何选择合适的正交表</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">需求：窗体中有多个控件（字体、字符样式、颜色、字号），每个控件有多个取值字体：仿宋、楷体、华文彩云字符样式：粗体、斜体、下划线颜色：红色、绿色、蓝色字号：20号、30号、40号
-如果按照正常步骤进行，需要 333*3=81 种组合，就需要写81个测试用例，显得比较多，针对这种组合量比较大的情况，如何采用最少的测试用例集合获得最大的测试覆盖率呢，就可以采用  正交排列法（—定义：正交排列法就是能够使用最小的测试过程集合获得最大的测试覆盖率。附：这是统计学的一个研究成果）。
-正交表的类别可分为：单一水平正交表 和 混合水平正交表。
-单一水平正交表：各列水平数相同的正交表称为等水平正交表。比如：L9 (34) –&gt;（附：括号里意思为3的4次方，下同。）、L2 7(313) 称为3水平正交表。 L4 (23)、L8 （27） 称为2水平正交表。单一水平正交表可以用 Ln(m*k) 表示，n是行数，m是水平数，k是因数。比如上边需求示例：可以理解为4因数（字体，字符样式，颜色，字号），3水平（意思是每个因数里都有三个选项，比如：字体里有 仿宋、楷体、华文彩云 3个选择）。一般情况下，我们可</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-05&nbsp;&nbsp;
-        
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E6%B5%8B%E8%AF%95">测试</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/02/windows%E4%B8%8B%E5%88%9B%E5%BB%BAPython%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/">
-        <p class="h4 index-header">windows下创建Python虚拟环境</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">windows下创建Python虚拟环境说明由于Python的版本众多，还有Python2和Python3的争论，因此有些软件包或第三方库就容易出现版本不兼容的问题。
-通过 virtualenv 这个工具，就可以构建一系列 虚拟的Python环境 ，然后在每个环境中安装需要的软件包(配合 pip 使用)，这一系列的环境是相互隔离的。作为一个独立的环境就不容易出现版本问题，还方便部署。
-安装pip install virtualenv
-virtualenv的基本使用1).创建虚拟环境
-virtualenv venv
-为环境指定Python解释器:
-virtualenv -p c:\python27\python.exe venv
-2).激活虚拟环境
-activate venv
-3).停止虚拟环境
-deactivate
-4).删除虚拟环境直接删除目录即可.
-rmvirtualenv venv　
-virtualenvwrapper为了使用virtualenv更方便，可以借助 virtualenvwrapper
-1).安装virtualenvwrapperpip install virtual</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-02&nbsp;&nbsp;
-        
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/python">python</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
 
 
+  <nav aria-label="index posts navigation">
+    <ul class="pagination pg-blue justify-content-center mt-5">
+      
+      
+      
+        <li class="page-item">
+          <a class="page-link" href="/page/2/#board">下一页</a>
+        </li>
+      
+    </ul>
+  </nav>
 
 
 
