@@ -166,6 +166,51 @@ My GitHub : 点击进入我的GitHub
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/07/appium%20%E4%BD%BF%E7%94%A8/">
+        <p class="h4 index-header">appium 使用</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">安装教程：
+使用步骤：
+1、手机用数据线连接电脑
+2、选择文件夹方式连接
+3、手机打开usb调试并允许
+4、电脑命令行查看是否连接成功，&gt;adb devices 出现
+List of devices attachedf431d9        device
+说明连接成功
+5、打开appium桌面版
+点击 
+start server 。。
+出现
+[Appium] Welcome to Appium v1.10.0
+[Appium] Appium REST http interface listener started on 0.0.0.0:4723
+说明连接成功
+6、手机打开一个app
+7、查看打开的app 包名
+adb shell dumpsys window windows | findstr “Current”
+或
+adb shell dumpsys window w |findstr / |findstr name=
+mSurface=Surface(name=com.tll.wireless/com.tmall.wireless.maintab.module.TMMain</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-07&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/01/07/python%E4%BB%A3%E7%A0%81%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B9%B6%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/">
         <p class="h4 index-header">python代码连接远程服务器并执行命令</p>
         
@@ -374,37 +419,6 @@ docker imagesdocke</div>
           <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-07&nbsp;&nbsp;
         
         
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/06/nodejs+hexo+gihub%20%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/">
-        <p class="h4 index-header">nodejs+hexo+gihub 搭建自己的博客</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">环境：win10
-1. 安装配置nodejs首先下载好nodejs官网地址： https://nodejs.org/en/下载LTS版， .msi结尾的安装包双击此安装包，一路点击next，直至安装完成。默认会安装到 C:\Program Files\nodejs 下，并且会自动添加环境变量。安装完成之后，进入cmd命令行，输入node -v 和 npm -v，会出现对应的版本号，即为成功。如图：如果选择默认安装路径，以后下载模块依赖的话也会存到c盘，为避免占用c盘空间，可以进行如下操作：在d盘创建nodejsFiles文件见，进入此文件夹，再创建两个文件夹：node_cache和node_global。如图:创建好后还需要配置环境变量，右键我的电脑，高级系统设置&gt;环境变量&gt;系统变量，点击新建，变量名：NODE_PATH, 变量值：D:\nodejsFiles, 然后再找到path变量名，点击编辑，新建 %NODE_PATH% ，添加好后一路点击确定。最后path里会显示最后设置更改模块和缓存安装路径：设置全局路径，在cmd中输入：npm config set prefix</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-06&nbsp;&nbsp;
-        
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA">环境搭建</a>&nbsp;
-          
         
       </div>
     </div>
