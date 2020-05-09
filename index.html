@@ -166,6 +166,33 @@ My GitHub : 点击进入我的GitHub
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/05/09/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E5%85%B7%E4%B9%8Bairtest/">
+        <p class="h4 index-header">自动化工具之airtest</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">AirtestProject是由网易游戏推出的一款自动化测试框架，具体请查看文档。官网：http://airtest.netease.com/文档http://airtest.netease.com/docs/cn/1_quick_start.htmlhttps://poco.readthedocs.io/zh_CN/latest/source/README.html#sdk-integration注：本文环境为windows7、python3.6.5、pycharm
+0test1.py (airtest脚本)
+12345678910111213141516171819202122232425262728# coding=utf-8import time, random, sys, osfrom airtest.core.api import *from poco.drivers.android.uiautomation import AndroidUiautomationPocofrom airtest.cli.parser import cli_setupfrom airtest.</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-05-09&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/01/07/appium%20%E4%BD%BF%E7%94%A8/">
         <p class="h4 index-header">appium 使用</p>
         
@@ -393,31 +420,6 @@ docker imagesdocke</div>
       <div>
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-11&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/07/python%E4%BB%A3%E7%A0%81%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE%E5%BA%93%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%9A%84%E6%89%80%E6%9C%89%E5%AD%97%E6%AE%B5%E5%92%8C%E5%AF%B9%E5%BA%94%E6%B3%A8%E9%87%8A/">
-        <p class="h4 index-header">python代码查询数据库数据表的所有字段和对应注释</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">1234567891011121314151617181920212223# coding=utf-8import pymysql  def get_mysql_zi_duan():    conn = pymysql.connect(host='192.16.00.0', port=3306, user='h', passwd='xi', db='db_x', charset='utf8')    cursor01 = conn.cursor()    cursor01.execute(        "select column_name, column_comment from information_schema.columns where table_schema ='db_x' and table_name = 'api_lingo_all_data'")    all_info = cursor01.fetchall()  # 数据库字段名和注释    print(all_info)    zi_duan_ming = []    for data in all_info</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-07&nbsp;&nbsp;
         
         
         

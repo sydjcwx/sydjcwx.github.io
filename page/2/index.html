@@ -138,6 +138,31 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/07/python%E4%BB%A3%E7%A0%81%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE%E5%BA%93%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%9A%84%E6%89%80%E6%9C%89%E5%AD%97%E6%AE%B5%E5%92%8C%E5%AF%B9%E5%BA%94%E6%B3%A8%E9%87%8A/">
+        <p class="h4 index-header">python代码查询数据库数据表的所有字段和对应注释</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">1234567891011121314151617181920212223# coding=utf-8import pymysql  def get_mysql_zi_duan():    conn = pymysql.connect(host='192.16.00.0', port=3306, user='h', passwd='xi', db='db_x', charset='utf8')    cursor01 = conn.cursor()    cursor01.execute(        "select column_name, column_comment from information_schema.columns where table_schema ='db_x' and table_name = 'api_lingo_all_data'")    all_info = cursor01.fetchall()  # 数据库字段名和注释    print(all_info)    zi_duan_ming = []    for data in all_info</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-07&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/11/06/nodejs+hexo+gihub%20%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/">
         <p class="h4 index-header">nodejs+hexo+gihub 搭建自己的博客</p>
         
